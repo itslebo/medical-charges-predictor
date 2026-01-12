@@ -1,25 +1,37 @@
-print(data.isnull().sum())
-    - Shows no null/missing values
+# Medical Charges Prediction
 
-line 581 is a duplicate:
-    - run: duplicated_data = data[data.duplicated()]
-            print(duplicated_data)
+Simple regression project that predicts individual medical charges using the "medical-charges.csv" dataset.
 
-print(data.shape)
-    - (1338, 7) => (Number of Rows, Number of Columns)
+- Script: [main.py](main.py) — loads [`data`](main.py), encodes categorical features, trains a [`model`](main.py) (LinearRegression), evaluates using [`r2_score`](main.py), prints comparisons and shows visualizations.
+- Dataset: [medical-charges.csv](medical-charges.csv)
+- License: [LICENSE](LICENSE)
 
-print(data.info())
-    - RangeIndex: 1338 entries, 0 to 1337
-      Data columns (total 7 columns):
-       #   Column    Non-Null Count  Dtype  
-      ---  ------    --------------  -----  
-       0   age       1338 non-null   int64  
-       1   sex       1338 non-null   object 
-       2   bmi       1338 non-null   float64
-       3   children  1338 non-null   int64  
-       4   smoker    1338 non-null   object 
-       5   region    1338 non-null   object 
-       6   charges   1338 non-null   float64
-      dtypes: float64(2), int64(2), object(3)
-      memory usage: 73.3+ KB
-      None
+## Quickstart
+
+1. (Optional) Create and activate a virtual environment:
+   ```sh
+   python -m venv .venv
+   source .venv/bin/activate  # macOS / Linux
+   .venv\Scripts\activate     # Windows
+   ```
+2. Install dependencies:
+   ```sh
+   pip install pandas scikit-learn matplotlib seaborn
+   ```
+3. Run the script:
+   ```sh
+   python main.py
+   ```
+
+## What you'll see
+- Cleaned data preview and new columns.
+- Train/test split sizes and first rows of training data.
+- Model training completion and R^2 score.
+- First 5 Actual vs Predicted comparisons.
+- Example single prediction using the [`new_patient`](main.py) row in the script.
+- Two visualizations: Actual vs Predicted and BMI vs Charges (colored by smoker).
+
+## Notes
+- Categorical encodings and dummy variables are performed in [main.py](main.py).
+- The dataset has no missing values and shape (1338, 7).
+- To change the example prediction, modify the [`new_patient`](main.py) line in [main.py](main.py).
